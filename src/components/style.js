@@ -2,6 +2,7 @@ import { createGlobalStyle } from "styled-components"
 import configs from "../../site-config"
 
 export default createGlobalStyle`
+  @import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
   html {
     font-size: 62.5%;
     font-family: ${configs.font};
@@ -59,6 +60,12 @@ export default createGlobalStyle`
     background-size: cover;
     background-position: top;
     border-radius: 0px 0px 40px 40px;
+  }
+
+  @media only screen and (max-width: 767px) {
+    .imageWrapper {
+      height: 764px;
+    }
   }
 
   .headerImage {
@@ -182,7 +189,7 @@ export default createGlobalStyle`
     color: rgba(${configs.topbar_title_color}, 1);
   }
 
-  // App Title, Price, Description and Links
+  // App Title, Subtitle, Description and Links
 
   .appInfo {
     grid-area: i;
@@ -211,7 +218,7 @@ export default createGlobalStyle`
     clip-path: url(#shape120);
   }
 
-  .appNamePriceContainer {
+  .appNameSubtitleContainer {
     display: flex;
     flex: 0 1 auto;
     flex-direction: column;
@@ -224,14 +231,14 @@ export default createGlobalStyle`
     color: ${configs.app_title_color};
   }
 
-  .appPrice {
-    color: ${configs.app_price_color};
+  .appSubtitle {
+    color: ${configs.app_subtitle_color};
     font-weight: normal;
     margin-top: 13px;
   }
 
   @media only screen and (max-width: 768px) {
-    .appNamePriceContainer {
+    .appNameSubtitleContainer {
       width: 100%;
       margin-left: 0px;
       align-items: center;
@@ -243,7 +250,7 @@ export default createGlobalStyle`
       text-align: center;
     }
 
-    .appPrice {
+    .appSubtitle {
       margin-top: 13px;
       text-align: center;
     }
@@ -267,6 +274,43 @@ export default createGlobalStyle`
     .appDescription {
       text-align: center;
     }
+  }
+
+  .appSignupContainer {
+    background-color: gray;
+    margin: 3rem auto;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 2rem;
+    background-color: hsla(0, 0%, 97%, 0.75);
+    border-radius: 3px;
+    width: 80%;
+  }
+  .appSignupForm {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    width: 100%;
+  }
+  .appSignupMessage {
+    font-size: 1.5rem;
+  }
+  .appSignupInput,
+  .appSignupSubmitButton {
+    box-sizing: border-box;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    padding: 6px 12px;
+    width: 100%;
+  }
+  .appSignupSubmitButton {
+    background-color: hsl(122, 39%, 41%);
+    border: none;
+    font-weight: bold;
+    color: hsl(0, 0%, 97%);
   }
 
   .downloadButtonsContainer {
@@ -531,5 +575,32 @@ export default createGlobalStyle`
 
   .hidden {
     display: none;
+  }
+
+
+  .github-corner:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+  }
+  @keyframes octocat-wave {
+    0%,
+    100% {
+      transform: rotate(0);
+    }
+    20%,
+    60% {
+      transform: rotate(-25deg);
+    }
+    40%,
+    80% {
+      transform: rotate(10deg);
+    }
+  }
+  @media (max-width: 500px) {
+    .github-corner:hover .octo-arm {
+      animation: none;
+    }
+    .github-corner .octo-arm {
+      animation: octocat-wave 560ms ease-in-out;
+    }
   }
 `

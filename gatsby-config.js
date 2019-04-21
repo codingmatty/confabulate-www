@@ -30,13 +30,14 @@ module.exports = {
         theme_color: configs.app_title_color,
         display: `minimal-ui`,
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
+        logo: `src/images/logo.png`,
       },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: configs.google_analytics_ID
-      }
+        trackingId: configs.google_analytics_ID,
+      },
     },
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-offline`,
