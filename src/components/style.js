@@ -276,17 +276,70 @@ export default createGlobalStyle`
     }
   }
 
-  .appSignupContainer {
-    background-color: gray;
+  /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+  .flip-card {
+    background-color: transparent;
+    -webkit-perspective: 1000px;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    width: 80%;
     margin: 3rem auto;
+  }
+
+  /* This container is needed to position the front and back side */
+  .flip-card-inner {
+    height: 160px;
+    position: relative;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    transition: -webkit-transform 0.8s;
+    transition: transform 0.8s;
+    transition: transform 0.8s, -webkit-transform 0.8s;
+    width: 100%;
+  }
+
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+  .flip-card.flipped .flip-card-inner {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+
+  /* Position the front and back side */
+  .flip-card-front,
+  .flip-card-back {
+    align-items: center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    background-color: hsla(0, 0%, 97%, 0.75);
+    border-radius: 3px;
+    bottom: 0;
+    display: flex;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    justify-content: center;
+    margin: auto;
+    padding: 2rem;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  /* Style the front side (fallback if image is missing) */
+  .flip-card-front {
+  }
+
+  /* Style the back side */
+  .flip-card-back {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+
+  .appSignupContainer {
     align-items: flex-start;
     display: flex;
     flex-direction: column;
     text-align: left;
-    padding: 2rem;
-    background-color: hsla(0, 0%, 97%, 0.75);
     border-radius: 3px;
-    width: 80%;
   }
   .appSignupForm {
     align-items: flex-start;

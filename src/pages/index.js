@@ -175,27 +175,51 @@ const IndexPage = ({ data }) => (
             <div className="appDescriptionContainer">
               <p className="appDescription">{configs.app_description}</p>
             </div>
-            <div className="appSignupContainer">
-              <p className="appSignupMessage">
-                Sign up now to be an early adopter.
-              </p>
-              <form
-                className="appSignupForm"
-                name="email"
-                method="POST"
-                data-netlify="true"
-              >
-                <input
-                  className="appSignupInput"
-                  type="email"
-                  placeholder="email"
-                  required
-                />
-                <button className="appSignupSubmitButton" type="submit">
-                  Sign Up
-                </button>
-              </form>
+            <div className="flip-card">
+              <div className="flip-card-inner">
+                <div className="flip-card-front appSignupContainer">
+                  <p className="appSignupMessage">
+                    Sign up now to be an early adopter.
+                  </p>
+                  <form
+                    className="appSignupForm"
+                    onSubmit={e => {
+                      e.preventDefault()
+                      const { value: email } = e.target.querySelector(
+                        "input[type=email]"
+                      )
+                      document
+                        .querySelector(".flip-card")
+                        .classList.add("flipped")
+                      fetch(
+                        `https://script.google.com/macros/s/AKfycbw6w7sjS99e8OWTotYJcCqcLJ5HsYk-x3Au4zs8kUCo9BW42Bbg/exec?email=${email}`
+                      )
+                    }}
+                  >
+                    <input
+                      className="appSignupInput"
+                      type="email"
+                      placeholder="email"
+                      required
+                    />
+                    <button className="appSignupSubmitButton" type="submit">
+                      Sign Up
+                    </button>
+                  </form>
+                </div>
+                <div className="flip-card-back appSignupContainer">
+                  <p>
+                    Thanks for signing up! We will be in touch when Confabulate
+                    is ready. In the meantime, follow{" "}
+                    <a href="https://twitter.com/confabulate_app">
+                      @confabulate_app
+                    </a>{" "}
+                    on twitter for updates.
+                  </p>
+                </div>
+              </div>
             </div>
+            <script type="text/javascript" src="/script.js" />
             {/* <div className="downloadButtonsContainer">
               {configs.playstore_link && (
                 <a className="playStoreLink" href={configs.playstore_link}>
