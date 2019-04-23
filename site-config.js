@@ -11,7 +11,8 @@ module.exports = {
   app_subtitle: "– (verb) engage in conversation; talk",
   app_description:
     "Social relationship manager to help keep up with and strengthen friendships.",
-  app_keywords: ["automatic", "gatsbyjs", "app", "landing page"],
+  app_twitter_handle: "@confabulate_app",
+  app_keywords: ["social", "community", "relationships"],
 
   // Personal Info
   your_name: "@codingmatty",

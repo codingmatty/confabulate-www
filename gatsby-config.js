@@ -7,6 +7,7 @@ module.exports = {
     title: configs.app_name,
     description: configs.app_description,
     author: configs.twitter_username,
+    site: configs.app_twitter_handle,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

@@ -11,7 +11,7 @@ import configs from "../../site-config"
 
 const IndexPage = ({ data }) => (
   <Layout>
-    <SEO title="Home" keywords={configs.app_keywords} />
+    <SEO keywords={configs.app_keywords} />
 
     <a
       href="https://github.com/codingmatty/confabulate"
