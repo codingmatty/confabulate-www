@@ -186,18 +186,19 @@ const IndexPage = ({ data }) => (
                     onSubmit={e => {
                       e.preventDefault()
                       const { value: email } = e.target.querySelector(
-                        "input[type=email]"
+                        "input[name=email]"
                       )
                       document
                         .querySelector(".flip-card")
                         .classList.add("flipped")
                       fetch(
-                        `https://script.google.com/macros/s/AKfycbw6w7sjS99e8OWTotYJcCqcLJ5HsYk-x3Au4zs8kUCo9BW42Bbg/exec?email=${email}`
+                        `https://hooks.zapier.com/hooks/catch/4957324/jfd1x2?email=${email}`
                       )
                     }}
                   >
                     <input
                       className="appSignupInput"
+                      name="email"
                       type="email"
                       placeholder="email"
                       required
